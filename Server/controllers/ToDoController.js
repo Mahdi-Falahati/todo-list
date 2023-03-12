@@ -17,3 +17,15 @@ module.exports.saveToDo = async (req, res) => {
     res.status(500).json({ msg: error });
   }
 };
+
+module.exports.updateTodo = async (req, res) => {
+  const {id: _id} = req.params
+  const todo = req.body
+  
+  try {
+      const updatedTodo = await ToDoModel.findByIdAndUpdate(_id, {...todo, _id}, {new: true})
+      res.status(200).json(updatedTodo)
+  } catch (error) {
+      res.status(500).json({ msg: error });
+  }
+}
