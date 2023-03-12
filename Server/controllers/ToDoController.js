@@ -1,16 +1,19 @@
 const ToDoModel = require("../models/ToDoModel");
 
 module.exports.getToDo = async (req, res) => {
-  const todo = await ToDoModel.find();
-  res.send(toDo);
+  try {
+    const todo = await ToDoModel.find();
+    res.status(200).json(todo);
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
 };
 
 module.exports.saveToDo = async (req, res) => {
-  const { text } = req.body;
-
-  ToDoModel.create({ text }).then((data) => {
-    console.log("Added Todo Successfully...");
-    console.log(data);
-    res.send(toDo);
-  });
+  try {
+    const todo = await ToDoModel.create(req.body);
+    res.status(201).json( todo );
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
 };
