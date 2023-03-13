@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './Form.css';
 
 export default function Form(props) {
   const [todo, setTodo] = useState("");
@@ -13,14 +14,15 @@ export default function Form(props) {
   };
 
   return (
-    <form onSubmit={submitFormHandler}>
-      <input
+    <form onSubmit={submitFormHandler} className="from-todo">
+      <textarea
         type="text"
         placeholder="Wrtie your todo..."
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
+        className="input-todo"
       />
-      <button>Add Todo</button>
+      <button className="btn-submit">Add Todo</button>
     </form>
   );
 }
