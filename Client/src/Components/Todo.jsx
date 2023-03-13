@@ -1,7 +1,7 @@
-export default function Todoes({todo}) {
+export default function Todo({data}) {
   return (
     <section>
-        <span>{todo}</span>
+        <span>{data}</span>
         <button>Edit</button>
         <button>Delete</button>
     </section>
