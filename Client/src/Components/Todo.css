@@ -16,30 +16,34 @@
 }
 
 .btn-edit {
-  cursor: pointer;
   border: none;
-  outline: none;
   width: 60px;
-  height: 30px;
-  margin: 0px 5px;
   background: transparent;
   font-weight: bold;
   font-style: italic;
   background: green;
-  color: #fff;
   letter-spacing: 2px;
   border-radius: 10px;
 }
 
 .btn-delete {
-  cursor: pointer;
-  outline: none;
   border: 1px solid #111;
   width: 30px;
-  height: 30px;
   border-radius: 50%;
-  margin: 0px 5px;
-  background: transparent;
   background: red;
+}
+
+.btn-delete,
+.btn-edit {
+  transition: all 1s;
+  cursor: pointer;
+  outline: none;
   color: #fff;
+  margin: 0px 5px;
+  height: 30px;
+}
+
+.btn-delete:hover,
+.btn-edit:hover {
+  transform: scale(1.1);
 }
