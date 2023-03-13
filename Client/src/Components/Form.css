@@ -57,3 +57,9 @@
     transform: scale(1,1);
 }
 
+
+@media only screen and (max-width:450px) {
+  .from-todo{
+    max-width: 75%;
+  }
+}

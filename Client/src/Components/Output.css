@@ -1,6 +1,6 @@
 .output{
     margin: 50px auto;
-    width: 500px;
+    max-width: 500px;
     height: 300px;
     padding: 10px;
 }
