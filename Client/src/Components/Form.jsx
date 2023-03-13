@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+
 import { createTodo } from "../API/TodoApi";
 import "./Form.css";
 
@@ -9,7 +11,7 @@ export default function Form(props) {
     e.preventDefault();
 
     if (todo.trim()) {
-      props.data(todo);
+      props.data({text:todo,_id:uuidv4()});
       createTodo(todo);
       setTodo("");
     }

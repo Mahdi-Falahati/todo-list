@@ -1,14 +1,24 @@
 import Todo from "./Todo";
-import { v4 as uuidv4 } from "uuid";
 
-import "./Output.css"
+import "./Output.css";
+import { useEffect, useState } from "react";
+import { getAllTodo } from "../API/TodoApi";
 
 export default function Output({ todoes }) {
+  const [allTodo, setTodo] = useState([]);
+
+  useEffect(() => {
+    getAllTodo().then((data) => {
+      setTodo(data.data);
+    });
+  }, []);
+
   return (
     <section className="output">
       {todoes?.map((data) => (
-        <Todo data={data} key={uuidv4()} />
+        <Todo data={data.text} id={data['_id']} key={data['_id']}/>
       ))}
+      
     </section>
   );
 }
