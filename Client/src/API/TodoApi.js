@@ -22,7 +22,7 @@ export async function updateTodo(id, todo) {
 
 export async function createTodo(todo) {
   try {
-    await axios.post(baseUrl + "save", todo);
+    await axios.post(baseUrl + "save", { "text": todo });
   } catch (error) {
     console.log(error);
   }
