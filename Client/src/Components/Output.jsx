@@ -18,7 +18,9 @@ export default function Output({ todoes }) {
       {todoes?.map((data) => (
         <Todo data={data.text} id={data['_id']} key={data['_id']}/>
       ))}
-      
+      {allTodo?.map((data) => (
+        <Todo data={data.text} id={data['_id']} key={data['_id']}/>
+      ))}
     </section>
   );
 }
