@@ -1,5 +1,6 @@
 import { useState } from "react";
-import './Form.css';
+import { createTodo } from "../API/TodoApi";
+import "./Form.css";
 
 export default function Form(props) {
   const [todo, setTodo] = useState("");
@@ -9,6 +10,7 @@ export default function Form(props) {
 
     if (todo.trim()) {
       props.data(todo);
+      createTodo(todo);
       setTodo("");
     }
   };
