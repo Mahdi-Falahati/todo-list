@@ -1,9 +1,13 @@
-export default function Todo({data}) {
+import "./Todo.css";
+
+export default function Todo({ data }) {
   return (
-    <section>
-        <span>{data}</span>
-        <button>Edit</button>
-        <button>Delete</button>
+    <section className="todo">
+      <span>{data}</span>
+      <div className="btns">
+        <button className="btn-edit">Edit</button>
+        <button className="btn-delete">X</button>
+      </div>
     </section>
-  )
+  );
 }
