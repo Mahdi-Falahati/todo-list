@@ -6,7 +6,7 @@
 
 > preview : https://fullstackclient.onrender.com/
 
-> three branch
+#### this repo have three branch
 #### after install nodemudole
 
 > Point : you should twice clone this repo one for go to backend branch and run server and two for go to front end branch and run app
