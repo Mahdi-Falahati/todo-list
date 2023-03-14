@@ -1,22 +1,12 @@
-import { deleteTodo } from "../API/TodoApi";
 import "./Todo.css";
 
-export default function Todo({ data, id }) {
-  const deleteTodoHandler = (e) => {
-    const todo = e.target.parentElement.parentElement;
-    deleteTodo(todo.id);
-    todo.classList.value += " remove";
-    setTimeout(() => {
-      todo.remove();
-    }, 1500);
-  };
-
+export default function Todo(props) {
   return (
-    <section className="todo" id={id}>
-      <span>{data}</span>
+    <section className="todo" id={props.id}>
+      <span>{props.data}</span>
       <div className="btns">
         <button className="btn-edit">Edit</button>
-        <button className="btn-delete" onClick={deleteTodoHandler}>
+        <button className="btn-delete" onClick={props.delete}>
           X
         </button>
       </div>
