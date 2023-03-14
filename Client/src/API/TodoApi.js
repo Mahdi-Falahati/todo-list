@@ -14,7 +14,7 @@ export async function getAllTodo() {
 export async function updateTodo(id, todo) {
   try {
     console.log(baseUrl + id);
-    await axios.patch(baseUrl + id, todo);
+    await axios.patch(baseUrl + id, { "text": todo });
   } catch (error) {
     console.log(error);
   }
