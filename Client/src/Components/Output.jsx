@@ -13,11 +13,7 @@ export default function Output() {
     getAllTodo().then((data) => {
       setTodo(data.data);
     });
-    if (ctx.store) {
-      getAllTodo().then((data) => {
-        setTodo(data.data);
-      });
-    }
+    ctx.storeSetterToggle(false);
   }, [ctx]);
 
   return (
