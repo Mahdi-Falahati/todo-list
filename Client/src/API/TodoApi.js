@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:5000/";
+const baseUrl = "https://fullstackserver-zw0m.onrender.com/";
 
 export async function getAllTodo() {
   try {
@@ -13,7 +13,6 @@ export async function getAllTodo() {
 
 export async function updateTodo(id, todo) {
   try {
-    console.log(baseUrl + id);
     await axios.patch(baseUrl + id, { "text": todo });
   } catch (error) {
     console.log(error);
@@ -30,7 +29,6 @@ export async function createTodo(todo) {
 
 export async function deleteTodo(id) {
   try {
-    console.log(baseUrl + id);
     await axios.delete(baseUrl + id);
   } catch (error) {
     console.log(error);
