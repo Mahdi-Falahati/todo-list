@@ -46,6 +46,18 @@ export default function Output() {
 
   const updateTodoHandler = (todo) => {
     updateTodo(todo.id, todo.text);
+
+    const result = allTodo.map((data) => {
+      if (todo.id === data["_id"]) {
+        return {
+          text: todo.text,
+          _id: todo.id,
+        };
+      } else {
+        return data;
+      }
+    });
+    setTodo(result);
   };
 
   return (
