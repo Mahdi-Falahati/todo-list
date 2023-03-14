@@ -1,0 +1,55 @@
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dotted #999;
+  padding-bottom: 10px;
+  margin-top: 15px;
+  word-break: break-all;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.btn-edit {
+  border: none;
+  width: 60px;
+  background: transparent;
+  font-weight: bold;
+  font-style: italic;
+  background: green;
+  letter-spacing: 2px;
+  border-radius: 10px;
+}
+
+.btn-delete {
+  border: 1px solid #111;
+  width: 30px;
+  border-radius: 50%;
+  background: red;
+}
+
+.btn-delete,
+.btn-edit {
+  transition: all 1s;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  margin: 0px 5px;
+  height: 30px;
+}
+
+.btn-delete:hover,
+.btn-edit:hover {
+  transform: scale(1.1);
+}
+
+.remove {
+  transition: all 2s;
+  transform: translateY(120px) rotate(25deg);
+  opacity: 0;
+}

@@ -1,0 +1,65 @@
+.from-todo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0px auto;
+  margin-top: 60px;
+  max-width: 350px;
+  box-shadow: 0px 0px 6px #999;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.input-todo {
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 1px solid #999;
+  width: 250px;
+  height: 80px;
+  font-size: 17px;
+  font-weight: bold;
+  font-style: italic;
+  resize: none;
+}
+
+.btn-submit {
+  position: relative;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 115px;
+  height: 35px;
+  font-weight: bold;
+  font-style: italic;
+  background: transparent;
+  background: orangered;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.btn-submit::before {
+  content: "";
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  bottom: 0%;
+  right: 0%;
+  background: #ffffff48;
+  border-radius: 10px;
+  transform: scale(0,1);
+  transition: all 1s;
+}
+
+.btn-submit:hover::before{
+    transform: scale(1,1);
+}
+
+
+@media only screen and (max-width:450px) {
+  .from-todo{
+    max-width: 75%;
+  }
+}

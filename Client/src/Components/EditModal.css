@@ -1,0 +1,123 @@
+.modal {
+  position: fixed;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background: #0000008e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.from__edit-todo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 60px;
+  max-width: 350px;
+  box-shadow: inset 0px 0px 15px #999;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.input__edit-todo {
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 1px solid #999;
+  width: 250px;
+  height: 80px;
+  font-size: 17px;
+  font-weight: bold;
+  font-style: italic;
+  resize: none;
+  background: transparent;
+  color: #fff;
+}
+
+.input__edit-todo::placeholder {
+  color: #ffffffbe;
+}
+
+.btn__edit-submit {
+  position: relative;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 115px;
+  height: 35px;
+  font-weight: bold;
+  font-style: italic;
+  background: transparent;
+  background: green;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.btn__edit-submit::before {
+  content: "";
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  bottom: 0%;
+  right: 0%;
+  background: #ffffff48;
+  border-radius: 10px;
+  transform: scale(0, 1);
+  transition: all 1s;
+}
+
+.btn__edit-submit:hover::before {
+  transform: scale(1, 1);
+}
+
+@media only screen and (max-width: 450px) {
+  .from__edit-todo {
+    max-width: 75%;
+  }
+}
+
+.preview {
+  text-align: center;
+  letter-spacing: 2px;
+  border: 1px dotted #fff;
+  background: #616161;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-style: italic;
+  word-break: break-all;
+  line-height: 20px;
+  color: aqua;
+  margin: 0px 10px;
+}
+
+.preview span {
+  color: #fff;
+}
+
+.closeWrap{
+  height: 10px;
+  text-align: right;
+}
+
+.close{
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  color: red;
+  background: #fff;
+  font-weight: bold;
+  padding: 5px;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  font-size: 20px;
+  line-height: 20px;
+  margin: 20px auto;
+}
+
