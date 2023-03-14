@@ -5,7 +5,7 @@ export default function Todo(props) {
     <section className="todo" id={props.id}>
       <span>{props.data}</span>
       <div className="btns">
-        <button className="btn-edit">Edit</button>
+        <button className="btn-edit" onClick={props.edit}>Edit</button>
         <button className="btn-delete" onClick={props.delete}>
           X
         </button>

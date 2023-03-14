@@ -2,16 +2,17 @@ import { useContext, useState } from "react";
 import "./EditModal.css";
 import { StoreContext } from "../StoreContext";
 
-export default function EditModal({ data }) {
-  const [todo, setTodo] = useState(data);
+export default function EditModal(props) {
+  const [todo, setTodo] = useState(props.data);
   const ctx = useContext(StoreContext);
+
   const submitHandler = (e) => {
     e.preventDefault();
     ctx.setModalToggle();
+    props.update(todo);
   };
 
   const closeModalHandler = (e) => {
-    e.stopPropagation();
     ctx.setModalToggle();
   };
 
@@ -19,19 +20,19 @@ export default function EditModal({ data }) {
     <section className="modal">
       <div>
         <p className="preview">
-          Preview : <span>{todo}</span>
+          Preview : <span>{todo.text}</span>
         </p>
-      <div className="closeWrap">
-        <button className="close" onClick={closeModalHandler}>
-          X
-        </button>
-      </div>
-        <form className="from__edit-todo" onSubmit={submitHandler}>
+        <div className="closeWrap">
+          <button className="close" onClick={closeModalHandler}>
+            X
+          </button>
+        </div>
+        <form className="from__edit-todo" id={todo.id} onSubmit={submitHandler}>
           <textarea
             type="text"
             placeholder="Wrtie your todo..."
-            value={todo}
-            onChange={(e) => setTodo(e.target.value)}
+            value={todo.text}
+            onChange={(e) => setTodo({text:e.target.value,id:todo.id})}
             className="input__edit-todo"
           />
           <button className="btn__edit-submit">Edit Todo</button>

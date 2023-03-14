@@ -3,13 +3,15 @@ import Todo from "./Todo";
 import "./Output.css";
 import { useContext, useEffect, useState } from "react";
 
-import { getAllTodo } from "../API/TodoApi";
+import { getAllTodo, updateTodo } from "../API/TodoApi";
 import { deleteTodo } from "../API/TodoApi";
 
 import { StoreContext } from "../StoreContext";
+import EditModal from "./EditModal";
 
 export default function Output() {
   const [allTodo, setTodo] = useState([]);
+  const [text, setText] = useState({});
   const ctx = useContext(StoreContext);
 
   useEffect(() => {
@@ -33,18 +35,31 @@ export default function Output() {
       todo.remove();
     }, 1500);
   };
-  console.log(allTodo);
+
+  const editTodoHandler = (e) => {
+    setText({
+      text: e.target.parentElement.parentElement.firstChild.innerHTML,
+      id: e.target.parentElement.parentElement.id,
+    });
+    ctx.setModalToggle();
+  };
+
+  const updateTodoHandler = (todo) => {
+    updateTodo(todo.id, todo.text);
+  };
 
   return (
     <section className="output">
       {allTodo?.map((data) => (
         <Todo
           delete={deleteTodoHandler}
+          edit={editTodoHandler}
           data={data.text}
           id={data["_id"]}
           key={data["_id"]}
         />
       ))}
+      {ctx.modal && <EditModal data={text} update={updateTodoHandler} />}
     </section>
   );
 }
