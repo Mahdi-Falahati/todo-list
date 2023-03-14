@@ -11,11 +11,13 @@ import EditModal from "./EditModal";
 
 export default function Output() {
   const [allTodo, setTodo] = useState([]);
+  const [validate, setValidate] = useState(false);
   const [text, setText] = useState({});
   const ctx = useContext(StoreContext);
 
   useEffect(() => {
     getAllTodo().then((data) => {
+      setValidate(true);
       setTodo(data.data);
     });
     ctx.storeSetterToggle(false);
@@ -29,10 +31,9 @@ export default function Output() {
     const result = allTodo.filter((data) => {
       return todo.id !== data["_id"];
     });
-    setTodo(result);
 
     setTimeout(() => {
-      todo.remove();
+      setTodo(result);
     }, 1500);
   };
 
@@ -60,17 +61,20 @@ export default function Output() {
     setTodo(result);
   };
 
+  const resultTodo = allTodo?.map((data) => (
+    <Todo
+      delete={deleteTodoHandler}
+      edit={editTodoHandler}
+      data={data.text}
+      id={data["_id"]}
+      key={data["_id"]}
+    />
+  ));
+
   return (
     <section className="output">
-      {allTodo?.map((data) => (
-        <Todo
-          delete={deleteTodoHandler}
-          edit={editTodoHandler}
-          data={data.text}
-          id={data["_id"]}
-          key={data["_id"]}
-        />
-      ))}
+      {!validate && <p className="loading">Is Loading...</p>}
+      {validate && resultTodo}
       {ctx.modal && <EditModal data={text} update={updateTodoHandler} />}
     </section>
   );

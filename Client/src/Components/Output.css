@@ -4,3 +4,11 @@
     height: 300px;
     padding: 10px;
 }
+
+.loading{
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-style: italic;
+    color: orangered;
+}
