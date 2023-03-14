@@ -43,3 +43,6 @@ nodemon index.js
 ```
 /api/{id}
 ```
+
+# Config env
+> login in mongodb.com and create user finaly in .env file weite usaer and pass 
