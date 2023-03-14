@@ -1,5 +1,10 @@
 # todo-list
-## a full stack web-app - technologies use: MongoDB, Mongoose, Node, Express, React
+## a full stack web-app - technologies use:
+> react , react hook like use-context , useEffect , useState
+>  Node, Express
+> MongoDB, Mongoose
+
+> preview : https://fullstackclient.onrender.com/
 
 > three branch
 #### after install nodemudole
