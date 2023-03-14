@@ -9,6 +9,7 @@
 - main
 
 * backend
+
 1- go to server directory
 ```
 cd Server
@@ -19,6 +20,7 @@ nodemon index.js
 ```
 
 + frontend
+
 1- go to client directory
 ```
 cd Client
