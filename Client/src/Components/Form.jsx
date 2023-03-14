@@ -1,18 +1,18 @@
-import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { useContext, useState } from "react";
 
 import { createTodo } from "../API/TodoApi";
+import { StoreContext } from "../StoreContext";
 import "./Form.css";
 
 export default function Form(props) {
   const [todo, setTodo] = useState("");
-
+  const ctx = useContext(StoreContext);
   const submitFormHandler = (e) => {
     e.preventDefault();
 
     if (todo.trim()) {
-      props.data({text:todo,_id:uuidv4()});
       createTodo(todo);
+      ctx.storeSetterToggle(true);
       setTodo("");
     }
   };
